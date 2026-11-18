@@ -13,7 +13,7 @@
 //   [Drengr_Attack_Light_01]          ; montage or animation name (the montage's first animation), * wildcards
 //   0.32 = HitStart                   ; seconds into the montage
 //   60%  = CancelDodge                ; or a share of its length
-// Console: np.payloads (what is loaded), pl.log on|off (log every montage start, to find names), pl.reload.
+// Console: pl.list (what is loaded), pl.log on|off (log every montage start, to find names), pl.reload.
 #include "NorseReflect.hpp"
 #include "NorseManifest.hpp"
 #include "NorseFilters.hpp"
