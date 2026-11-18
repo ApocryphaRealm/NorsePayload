@@ -270,7 +270,20 @@ namespace
         float r = it != g_originals.end() ? it->second(anim, montage, blend, rate, retType, startAt, stopAll) : 0.f;
         try
         {
-            if (r > 0.f) OnMontageStart(anim, montage, startAt);
+            if (r > 0.f)
+            {
+                // The montage that actually started: NorseAnimSwap (its hook runs inside this one) may have swapped the
+                // montage asset passed in for another. Refinement 2026-11-18.
+                UObject* playing = montage;
+                Buf cm;
+                if (Reflect::Get().ParmsSizeOf(anim, L"GetCurrentActiveMontage") == 8 && Reflect::Get().Call(anim, L"GetCurrentActiveMontage", cm.b, 8, sizeof(cm.b)))
+                {
+                    UObject* cur = nullptr;
+                    std::memcpy(&cur, cm.b, 8);
+                    if (cur) playing = cur;
+                }
+                OnMontageStart(anim, playing, startAt);
+            }
         }
         catch (...)
         {
