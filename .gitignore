@@ -1,0 +1,6 @@
+build/
+.xmake/
+
+__pycache__/
+*.pyc
+

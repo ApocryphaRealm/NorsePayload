@@ -1,0 +1,7 @@
+Reason: NorsePayload 0.1.0 sees montage starts through one hook (Montage_PlayInternal, AnimInstance vtable slot 95) and fires its timed moments at the right montage time, through NorseEvents.
+Batch B-20261117-214507-6fff, 2026-11-17 21:45-21:48 (Main Agent). One launch.
+- Map load: "Montage_PlayInternal hooked: vtable slot 95 of AnimInstance -> base+0x39c4b90"; the units' AnimBP instances share that function (no second hook needed).
+- Test table [*]: 0.1 = Early, 50% = Half. The hero's light attack (nrn.attack light, PlaySlotAnimationAsDynamicMontage): "montage start: AnimMontage_2147477426 (animation A_GC_Dagger_Attack_01)"; EVENT Payload Early at 100 ms and Half at 1133 ms (half of 2.266 s), 0.896 s apart in real time = 1.033 s of montage at the 1.15 play rate. Power attack (A_GC_Dagger_Attack_03): Early 100 ms, Half 949 ms, 0.738 s apart = 0.849 / 1.15.
+- The dynamic montage's animation name is read from its SlotAnimTracks (so payload tables name animations, not generated montage names).
+- NorseEvents gained a text field (NE_Text, size-guarded; older publishers unaffected) - the Payload name travels in it.
+- Not exercised: enemy (AI) montages - none play in the real-time test fight yet; a payload with a specific animation name; percent vs seconds on a montage started mid-way.
