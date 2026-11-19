@@ -33,3 +33,7 @@ Not yet: enemy montages (none play in the real-time test fight yet), conditions 
 the vtable slot as a Norse Address Library entry kind (checked per build). Build: `xmake f -p windows -a x64 -m release
 --toolchain=msvc -y`, then `xmake` (needs `../NorsePatcher`, `../NorseManifest`, `../NorseEvents`; MinHook in
 `third_party/`).
+
+## Licence
+
+GPL-3.0-or-later (see LICENSE). MinHook (BSD 2-Clause), compiled into the DLL, keeps its own notice in THIRD-PARTY-NOTICES.txt.
