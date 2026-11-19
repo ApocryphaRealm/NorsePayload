@@ -3,7 +3,7 @@ Third-party code compiled into this mod's DLL
 MinHook - The Minimalistic API Hooking Library (Tsuda Kageyu), with Hacker Disassembler Engine 64
 (Vyacheslav Patkov). BSD 2-Clause licence; its text follows.
 
-﻿MinHook - The Minimalistic API Hooking Library for x64/x86
+MinHook - The Minimalistic API Hooking Library for x64/x86
 Copyright (C) 2009-2017 Tsuda Kageyu.
 All rights reserved.
 
